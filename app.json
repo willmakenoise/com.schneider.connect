@@ -1,0 +1,120 @@
+{
+    "id": "com.schneider.connect",
+    "version": "0.0.1",
+    "compatibility": ">=2.0.0",
+    "sdk": 2,
+    "name": {
+        "en": "Schneider Connect"
+    },
+    "description": {
+        "en": "Add support for Schneider Connect devices."
+    },
+    "category": [
+        "appliances"
+    ],
+    "permissions": [],
+    "images": {
+        "large": "/assets/images/large.png",
+        "small": "/assets/images/small.png"
+    },
+    "author": {
+        "name": "Marius Stedjan",
+        "email": "marius@stedjan.com"
+    },
+    "drivers": [{
+        "id": "mtn507601",
+        "name": {
+            "en": "Relay In-Wall L+N"
+        },
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "zwave": {
+            "manufacturerId": 122,
+            "productTypeId": 32769,
+            "productId": 32772,
+            "learnmode": {
+                "instruction": {
+                    "en": "Press the button on your device three times"
+                }
+            },
+            "associationGroups": [1, 2]
+        },
+         "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+            "next": "add_my_devices"
+            }
+        },
+        {
+            "id": "add_my_devices",
+            "template": "add_devices"
+        }
+      ]
+    },
+    {
+        "id": "mtn507900",
+        "name": {
+            "en": "Dimmer In-Wall"
+        },
+        "class": "light",
+        "capabilities": ["dim", "onoff"],
+        "zwave": {
+            "manufacturerId": 122,
+            "productTypeId": 16387,
+            "productId": 2,
+            "learnmode": {
+                "instruction": {
+                    "en": "Press the button on your device three times"
+                }
+            },
+            "associationGroups": [1, 2]
+        },
+         "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+            "next": "add_my_devices"
+            }
+        },
+        {
+            "id": "add_my_devices",
+            "template": "add_devices"
+        }
+      ]
+    },
+    {
+        "id": "mtn508244",
+        "name": {
+            "en": "Move Switch"
+        },
+        "class": "button",
+        "capabilities": ["button"],
+        "zwave": {
+            "manufacturerId": 122,
+            "productTypeId": 2,
+            "productId": 1,
+            "learnmode": {
+                "instruction": {
+                    "en": "Press the button on your device three times"
+                }
+            },
+            "associationGroups": [1]
+        },
+         "pair": [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+            "next": "add_my_devices"
+            }
+        },
+        {
+            "id": "add_my_devices",
+            "template": "add_devices"
+        }
+      ]
+    }]
+}
