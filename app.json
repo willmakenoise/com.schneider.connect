@@ -1,120 +1,312 @@
 {
-    "id": "com.schneider.connect",
-    "version": "0.0.1",
-    "compatibility": ">=2.0.0",
-    "sdk": 2,
-    "name": {
-        "en": "Schneider Connect"
-    },
-    "description": {
-        "en": "Add support for Schneider Connect devices."
-    },
-    "category": [
-        "appliances"
-    ],
-    "permissions": [],
-    "images": {
-        "large": "/assets/images/large.png",
-        "small": "/assets/images/small.png"
-    },
-    "author": {
-        "name": "Marius Stedjan",
-        "email": "marius@stedjan.com"
-    },
-    "drivers": [{
-        "id": "mtn507601",
-        "name": {
-            "en": "Relay In-Wall L+N"
+  "id": "com.schneider.connect",
+  "version": "0.0.1",
+  "compatibility": ">=2.0.0",
+  "sdk": 2,
+  "name": {
+    "en": "Schneider Connect"
+  },
+  "description": {
+    "en": "Add support for Schneider Connect devices."
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Marius Stedjan",
+    "email": "marius@stedjan.com"
+  },
+  "drivers": [
+    {
+      "id": "mtn507502",
+      "name": {
+        "en": "Relay 2ch In-Wall"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 32769,
+        "productId": 32772,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
         },
-        "class": "socket",
-        "capabilities": ["onoff"],
-        "zwave": {
-            "manufacturerId": 122,
-            "productTypeId": 32769,
-            "productId": 32772,
-            "learnmode": {
-                "instruction": {
-                    "en": "Press the button on your device three times"
-                }
-            },
-            "associationGroups": [1, 2]
-        },
-         "pair": [
-        {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
-            "next": "add_my_devices"
+        "associationGroups": [
+          1
+        ],
+        "multiChannelNodes": {
+          "1": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Relay Ch1"
             }
+          },
+          "2": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Relay Ch2"
+            }
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
         },
         {
-            "id": "add_my_devices",
-            "template": "add_devices"
+          "id": "add_my_devices",
+          "template": "add_devices"
         }
       ]
     },
     {
-        "id": "mtn507900",
-        "name": {
-            "en": "Dimmer In-Wall"
+      "id": "mtn507900",
+      "name": {
+        "en": "Dimmer In-Wall"
+      },
+      "class": "light",
+      "capabilities": [
+        "dim",
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
         },
-        "class": "light",
-        "capabilities": ["dim", "onoff"],
-        "zwave": {
-            "manufacturerId": 122,
-            "productTypeId": 16387,
-            "productId": 2,
-            "learnmode": {
-                "instruction": {
-                    "en": "Press the button on your device three times"
-                }
-            },
-            "associationGroups": [1, 2]
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 16387,
+        "productId": 2,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
         },
-         "pair": [
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
         {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
+          "id": "dimming_step_auto",
+          "zwave": {
+            "index": 10,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "The percentage of a dimming step at automatic control",
+            "nl": "Percentage van dim stap bij automatische besturing"
+          },
+          "value": 1,
+          "attr": {
+            "min": 1,
+            "max": 99
+          },
+          "hint": {
+            "en": "The percentage (1-99) of a dimming step at automatic control. Range: 1 - 99, default value: 1.",
+            "nl": "Het percentage (1-99) per dim stap bij automatische besturing. Bereik: 1 - 99, standaard waarde: 1."
+          }
+        },
+        {
+          "id": "time_dimming_step_auto",
+          "zwave": {
+            "index": 9,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Time of a dimming step at automatic control",
+            "nl": "Tijd per dim stap bij automatische besturing"
+          },
+          "value": 3,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Time of a dimming step at automatic control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+            "nl": "Tijd per dim stap bij automatische besturing van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+          }
+        },
+        {
+          "id": "dimming_step_manual",
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "The percentage of a dimming step at manual control",
+            "nl": "Percentage van dim stap bij handmatige bediening"
+          },
+          "value": 1,
+          "attr": {
+            "min": 1,
+            "max": 99
+          },
+          "hint": {
+            "en": "The percentage (1-99) of a dimming step at manual control. Range: 1 - 99, default value: 1.",
+            "nl": "Het percentage (1-99) per dim stap bij handmatige bediening. Bereik: 1 - 99, standaard waarde: 1."
+          }
+        },
+        {
+          "id": "time_dimming_step_manual",
+          "zwave": {
+            "index": 7,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Time of a dimming step at manual control",
+            "nl": "Tijd per dim stap bij handmatige bediening"
+          },
+          "value": 3,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Time of a dimming step at manual control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+            "nl": "Tijd per dim stap bij handmatige bediening van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+          }
+        }
+      ],
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
             "next": "add_my_devices"
-            }
+          }
         },
         {
-            "id": "add_my_devices",
-            "template": "add_devices"
+          "id": "add_my_devices",
+          "template": "add_devices"
         }
       ]
     },
     {
-        "id": "mtn508244",
-        "name": {
-            "en": "Move Switch"
+      "id": "mtn508244",
+      "name": {
+        "en": "Move Switch"
+      },
+      "class": "button",
+      "capabilities": [
+        "button"
+      ],
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 2,
+        "productId": 1,
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
         },
-        "class": "button",
-        "capabilities": ["button"],
-        "zwave": {
-            "manufacturerId": 122,
-            "productTypeId": 2,
-            "productId": 1,
-            "learnmode": {
-                "instruction": {
-                    "en": "Press the button on your device three times"
-                }
-            },
-            "associationGroups": [1]
-        },
-         "pair": [
+        "associationGroups": [
+          1
+        ]
+      },
+      "pair": [
         {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
             "next": "add_my_devices"
-            }
+          }
         },
         {
-            "id": "add_my_devices",
-            "template": "add_devices"
+          "id": "add_my_devices",
+          "template": "add_devices"
         }
       ]
-    }]
+    }
+  ],
+  "flow": {
+    "actions": [
+      {
+        "id": "action_DIM_startLevelChange",
+        "title": {
+          "en": "Start dim level change",
+          "nl": "Start helderheid transitie"
+        },
+        "hint": {
+          "en": "This action card will trigger the start of a dim level change in the set direction. \nDuration (for the change in dim-level from 0-100%) can be set by using the transition symbol. \nIf not set, factory default duration is used.",
+          "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting. \nTransitie duur (voor de transitie in helderheid van 0-100%) kan ingesteld worden met behulp van de transitie symbool. \nWanneer niet ingesteld, dan wordt de standaard duur gebruikt."
+        },
+        "duration": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mtn507900"
+          },
+          {
+            "name": "direction",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Increase dim level",
+                  "nl": "Toenemende helderheid"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Decrease dim level",
+                  "nl": "Afnemende helderheid"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "action_DIM_stopLevelChange",
+        "title": {
+          "en": "Stop dim level change",
+          "nl": "Stop helderheid transitie"
+        },
+        "hint": {
+          "en": "This action card will trigger the stop of a dim level change.",
+          "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mtn507900"
+          }
+        ]
+      }
+    ]
+  }
 }
