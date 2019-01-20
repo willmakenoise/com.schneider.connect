@@ -1,0 +1,47 @@
+{
+  "id": "mtn507502",
+  "name": {
+    "en": "Relay 2ch In-Wall"
+  },
+  "class": "socket",
+  "capabilities": ["onoff"],
+  "zwave": {
+    "manufacturerId": 122,
+    "productTypeId": 32769,
+    "productId": 32772,
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on your device three times"
+      }
+    },
+    "associationGroups": [1],
+    "multiChannelNodes": {
+      "1": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Relay Ch1"
+        }
+      },
+      "2": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Relay Ch2"
+        }
+      }
+    }
+  },
+  "pair": [{
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}
