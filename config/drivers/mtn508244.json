@@ -1,0 +1,31 @@
+{
+  "id": "mtn508244",
+  "name": {
+    "en": "Move Switch"
+  },
+  "class": "button",
+  "capabilities": ["button"],
+  "zwave": {
+    "manufacturerId": 122,
+    "productTypeId": 2,
+    "productId": 1,
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on your device three times"
+      }
+    },
+    "associationGroups": [1]
+  },
+  "pair": [{
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}
