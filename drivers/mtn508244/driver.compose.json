@@ -4,11 +4,13 @@
     "en": "Move Switch"
   },
   "class": "button",
-  "capabilities": ["button"],
+  "capabilities": ["dim", "onoff"],
   "zwave": {
     "manufacturerId": 122,
     "productTypeId": 2,
     "productId": 1,
+    "zwaveAllianceProductId": 268,
+    "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/products/268",
     "learnmode": {
       "instruction": {
         "en": "Press the button on your device three times"

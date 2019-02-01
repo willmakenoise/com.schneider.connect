@@ -4,26 +4,31 @@ const { ZwaveDevice } = require('homey-meshdriver');
 
 class Schneider507900 extends ZwaveDevice {
 
-  onMeshInit() {
+  async onMeshInit() {
     this.enableDebug();
-    this.printNode();
-
-    const settings = this.getSettings();
+    // this.printNode();
 
     this.registerCapability('onoff', 'SWITCH_MULTILEVEL');
     this.registerCapability('dim', 'SWITCH_MULTILEVEL', {
-    
+
     });
+
     this.log('Schneider Dimmer has been inited');
 
-    // console.log('Options');
-    // console.log(this.getOptions());
-
-    console.log('Dim Duration:');
-    console.log(settings.dimming_duration);
+    // this.registerReportListener('CONFIGURATION', 'CONFIGURATION_REPORT', ( rawReport, parsedReport ) => {
+		// 	console.log('CONFIGURATION_REPORT', rawReport, parsedReport);
+		// });
+    // this.registerReportListener('SWITCH_MULTILEVEL', 'SWITCH_MULTILEVEL_REPORT', ( rawReport, parsedReport ) => {
+		// 	console.log('SWITCH_MULTILEVEL_REPORT', rawReport, parsedReport);
+		// });
+    // this.registerReportListener('ASSOCIATION', 'ASSOCIATION_REPORT', ( rawReport, parsedReport ) => {
+		// 	console.log('ASSOCIATION_REPORT', rawReport, parsedReport);
+		// });
+    // this.registerReportListener('ASSOCIATION', 'ASSOCIATION_GROUPINGS_REPORT', ( rawReport, parsedReport ) => {
+		// 	console.log('ASSOCIATION_GROUPINGS_REPORT', rawReport, parsedReport);
+		// });
 
   }
-
 }
 
 module.exports = Schneider507900;

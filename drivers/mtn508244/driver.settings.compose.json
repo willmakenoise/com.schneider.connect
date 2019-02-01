@@ -1,0 +1,42 @@
+[
+  {
+    "id": "54",
+    "zwave": {
+      "index": 0,
+      "size": 1,
+      "signed": false
+    },
+    "type": "number",
+    "label": {
+      "en": "enknapps rullegardin"
+    },
+    "value": 4,
+    "attr": {
+      "min": 0,
+      "max": 255
+    },
+    "hint": {
+      "en": "enknapps rullegardin."
+    }
+  },
+  {
+    "id": "60",
+    "zwave": {
+      "index": 60,
+      "size": 1,
+      "signed": false
+    },
+    "type": "number",
+    "label": {
+      "en": "scene rullegardin"
+    },
+    "value": 0,
+    "attr": {
+      "min": 0,
+      "max": 255
+    },
+    "hint": {
+      "en": "enknapps rullegardin."
+    }
+  }
+]

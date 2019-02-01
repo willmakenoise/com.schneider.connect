@@ -1,0 +1,25 @@
+{
+  "name": "com.schneider.connect",
+  "version": "0.0.1",
+  "description": "This app adds support for Schneider Connect devices in Homey",
+  "main": "app.js",
+  "dependencies": {
+    "homey-log": "^1.0.6",
+    "homey-meshdriver": "^1.2.30"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "run": "homeyConfig compose && athom project --run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:willmakenoise/com.schneider.connect.git"
+  },
+  "author": "Marius Stedjan",
+  "license": "GNU",
+  "homepage": "https://github.com/willmakenoise/com.schneider.connect/blob/master/README.md"
+}

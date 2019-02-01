@@ -23,6 +23,42 @@
   },
   "drivers": [
     {
+      "id": "mtn507501",
+      "name": {
+        "en": "Relay 1ch In-Wall"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 32769,
+        "productId": 32770,
+        "associationGroups": [
+          1
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "mtn507502",
       "name": {
         "en": "Relay 2ch In-Wall"
@@ -90,12 +126,7 @@
       ],
       "capabilitiesOptions": {
         "onoff": {
-          "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
+          "setOnDim": true
         }
       },
       "zwave": {
@@ -111,92 +142,6 @@
           1
         ]
       },
-      "settings": [
-        {
-          "id": "dimming_step_auto",
-          "zwave": {
-            "index": 10,
-            "size": 1
-          },
-          "type": "number",
-          "label": {
-            "en": "The percentage of a dimming step at automatic control",
-            "nl": "Percentage van dim stap bij automatische besturing"
-          },
-          "value": 1,
-          "attr": {
-            "min": 1,
-            "max": 99
-          },
-          "hint": {
-            "en": "The percentage (1-99) of a dimming step at automatic control. Range: 1 - 99, default value: 1.",
-            "nl": "Het percentage (1-99) per dim stap bij automatische besturing. Bereik: 1 - 99, standaard waarde: 1."
-          }
-        },
-        {
-          "id": "time_dimming_step_auto",
-          "zwave": {
-            "index": 9,
-            "size": 2
-          },
-          "type": "number",
-          "label": {
-            "en": "Time of a dimming step at automatic control",
-            "nl": "Tijd per dim stap bij automatische besturing"
-          },
-          "value": 3,
-          "attr": {
-            "min": 0,
-            "max": 255
-          },
-          "hint": {
-            "en": "Time of a dimming step at automatic control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
-            "nl": "Tijd per dim stap bij automatische besturing van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
-          }
-        },
-        {
-          "id": "dimming_step_manual",
-          "zwave": {
-            "index": 8,
-            "size": 1
-          },
-          "type": "number",
-          "label": {
-            "en": "The percentage of a dimming step at manual control",
-            "nl": "Percentage van dim stap bij handmatige bediening"
-          },
-          "value": 1,
-          "attr": {
-            "min": 1,
-            "max": 99
-          },
-          "hint": {
-            "en": "The percentage (1-99) of a dimming step at manual control. Range: 1 - 99, default value: 1.",
-            "nl": "Het percentage (1-99) per dim stap bij handmatige bediening. Bereik: 1 - 99, standaard waarde: 1."
-          }
-        },
-        {
-          "id": "time_dimming_step_manual",
-          "zwave": {
-            "index": 7,
-            "size": 2
-          },
-          "type": "number",
-          "label": {
-            "en": "Time of a dimming step at manual control",
-            "nl": "Tijd per dim stap bij handmatige bediening"
-          },
-          "value": 3,
-          "attr": {
-            "min": 0,
-            "max": 255
-          },
-          "hint": {
-            "en": "Time of a dimming step at manual control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
-            "nl": "Tijd per dim stap bij handmatige bediening van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
-          }
-        }
-      ],
       "pair": [
         {
           "id": "list_devices",
@@ -209,6 +154,28 @@
           "id": "add_my_devices",
           "template": "add_devices"
         }
+      ],
+      "settings": [
+        {
+          "id": "dimming_duration",
+          "zwave": {
+            "index": 196,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "Dimming Speed"
+          },
+          "value": 3,
+          "attr": {
+            "min": 1,
+            "max": 255
+          },
+          "hint": {
+            "en": "How fast the dimmer will dim the lights.\nUse 3 for factory default."
+          }
+        }
       ]
     },
     {
@@ -218,12 +185,15 @@
       },
       "class": "button",
       "capabilities": [
-        "button"
+        "dim",
+        "onoff"
       ],
       "zwave": {
         "manufacturerId": 122,
         "productTypeId": 2,
         "productId": 1,
+        "zwaveAllianceProductId": 268,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/products/268",
         "learnmode": {
           "instruction": {
             "en": "Press the button on your device three times"
@@ -245,26 +215,67 @@
           "id": "add_my_devices",
           "template": "add_devices"
         }
+      ],
+      "settings": [
+        {
+          "id": "54",
+          "zwave": {
+            "index": 0,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "enknapps rullegardin"
+          },
+          "value": 4,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "enknapps rullegardin."
+          }
+        },
+        {
+          "id": "60",
+          "zwave": {
+            "index": 60,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "scene rullegardin"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "enknapps rullegardin."
+          }
+        }
       ]
     }
   ],
   "flow": {
     "actions": [
       {
-        "id": "action_DIM_startLevelChange",
+        "id": "schneider_dim_startLevelChange",
         "title": {
           "en": "Start dim level change",
           "nl": "Start helderheid transitie"
         },
         "hint": {
-          "en": "This action card will trigger the start of a dim level change in the set direction. \nDuration (for the change in dim-level from 0-100%) can be set by using the transition symbol. \nIf not set, factory default duration is used.",
-          "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting. \nTransitie duur (voor de transitie in helderheid van 0-100%) kan ingesteld worden met behulp van de transitie symbool. \nWanneer niet ingesteld, dan wordt de standaard duur gebruikt."
+          "en": "This action card will start a dim level change in the set direction. \nDim duration is set in device settings.",
+          "nl": "Deze actiekaart start een dimniveauverandering in de ingestelde richting. \nDimduur is ingesteld in apparaatinstellingen."
         },
-        "duration": true,
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=mtn507900"
           },
           {
@@ -290,20 +301,151 @@
         ]
       },
       {
-        "id": "action_DIM_stopLevelChange",
+        "id": "schneider_dim_stopLevelChange",
         "title": {
           "en": "Stop dim level change",
           "nl": "Stop helderheid transitie"
         },
         "hint": {
-          "en": "This action card will trigger the stop of a dim level change.",
+          "en": "This action card will stop a dim level change.",
           "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting."
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=mtn507900"
+          }
+        ]
+      },
+      {
+        "id": "schneider_dim_startToggleLevelChange",
+        "title": {
+          "en": "Start dim level change (toggle direction)",
+          "nl": "Start helderheid transitie (wisselrichting)"
+        },
+        "hint": {
+          "en": "This action card will start a dim level change, and toggle dim direction (up/down) for every time it is invoked. \nDim duration is set in device settings.",
+          "nl": "Deze actiekaart activeert het begin van een dimniveauverandering en wisselt van richting (omhoog/omlaag). \nDe dimduur wordt ingesteld in apparaatinstellingen."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507900"
+          },
+          {
+            "name": "roll_over",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Stop level change at min/max brightness"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Cycle brightness between min/max"
+                }
+              }
+            ],
+            "label": {
+              "en": "Dimming behavior"
+            },
+            "hint": {
+              "en": "Enable this to toggle dim direction when min/max brightness is reached."
+            }
+          }
+        ]
+      },
+      {
+        "id": "schneider_dim_stopToggleLevelChange",
+        "title": {
+          "en": "Stop dim level change (toggle direction)",
+          "nl": "Stop helderheid transitie (wisselrichting)"
+        },
+        "hint": {
+          "en": "This action card will trigger the stop of a toggled dim level change.",
+          "nl": "Deze actiekaart activeert de stop van een omgeschakeld dimniveau wijzigen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507900"
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "mtn508244",
+        "title": {
+          "en": "Push button",
+          "nl": "Druk knop"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn508244"
+          },
+          {
+            "name": "scene",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Key Pressed 1 time",
+                "label": {
+                  "en": "Pressed 1x",
+                  "nl": "1x ingedrukt"
+                }
+              },
+              {
+                "id": "Key Pressed 2 times",
+                "label": {
+                  "en": "Pressed 2x",
+                  "nl": "2x ingedrukt"
+                }
+              },
+              {
+                "id": "Key Pressed 3 times",
+                "label": {
+                  "en": "Pressed 3x",
+                  "nl": "3x ingedrukt"
+                }
+              },
+              {
+                "id": "Key Pressed 4 times",
+                "label": {
+                  "en": "Pressed 4x",
+                  "nl": "4x ingedrukt"
+                }
+              },
+              {
+                "id": "Key Pressed 5 times",
+                "label": {
+                  "en": "Pressed 5x",
+                  "nl": "5x ingedrukt"
+                }
+              },
+              {
+                "id": "Key Held Down",
+                "label": {
+                  "en": "Long press (triggers every half second)",
+                  "nl": "Lang drukken (activeert elke halve seconde)"
+                }
+              },
+              {
+                "id": "Key Released",
+                "label": {
+                  "en": "Long press released",
+                  "nl": "Lang drukken gestopt"
+                }
+              }
+            ]
           }
         ]
       }

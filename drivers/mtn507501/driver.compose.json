@@ -1,0 +1,31 @@
+{
+  "id": "mtn507501",
+  "name": {
+    "en": "Relay 1ch In-Wall"
+  },
+  "class": "socket",
+  "capabilities": ["onoff"],
+  "zwave": {
+    "manufacturerId": 122,
+    "productTypeId": 32769,
+    "productId": 32770,
+    "associationGroups": [1],
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on your device three times"
+      }
+    }
+  },
+  "pair": [{
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_my_devices"
+      }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}
