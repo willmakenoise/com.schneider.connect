@@ -4,7 +4,7 @@
     "en": "Move Switch"
   },
   "class": "button",
-  "capabilities": ["dim", "onoff"],
+  "capabilities": ["button"],
   "zwave": {
     "manufacturerId": 122,
     "productTypeId": 2,
@@ -16,6 +16,7 @@
         "en": "Press the button on your device three times"
       }
     },
+    "wakeUpInterval": 30,
     "associationGroups": [1]
   },
   "pair": [{

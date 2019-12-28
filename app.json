@@ -139,7 +139,8 @@
           }
         },
         "associationGroups": [
-          1
+          1,
+          2
         ]
       },
       "pair": [
@@ -185,8 +186,7 @@
       },
       "class": "button",
       "capabilities": [
-        "dim",
-        "onoff"
+        "button"
       ],
       "zwave": {
         "manufacturerId": 122,
@@ -199,6 +199,7 @@
             "en": "Press the button on your device three times"
           }
         },
+        "wakeUpInterval": 30,
         "associationGroups": [
           1
         ]
@@ -218,24 +219,61 @@
       ],
       "settings": [
         {
-          "id": "54",
+          "id": "button_mode",
           "zwave": {
             "index": 0,
             "size": 1,
             "signed": false
           },
-          "type": "number",
+          "type": "dropdown",
           "label": {
-            "en": "enknapps rullegardin"
+            "en": "Button Mode"
           },
-          "value": 4,
-          "attr": {
-            "min": 0,
-            "max": 255
-          },
-          "hint": {
-            "en": "enknapps rullegardin."
-          }
+          "value": "4",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "0 - ??"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "4 - Toggling/Dimming/Shutters, single-surface"
+              }
+            },
+            {
+              "id": "60",
+              "label": {
+                "en": "60 - Retrieve/Save Scene"
+              }
+            },
+            {
+              "id": "44",
+              "label": {
+                "en": "44 - Doorbell Function"
+              }
+            },
+            {
+              "id": "54",
+              "label": {
+                "en": "54 - Move Roller Shutter, single-surface"
+              }
+            },
+            {
+              "id": "52",
+              "label": {
+                "en": "52 - Lower Roller Shutter as long as pressed"
+              }
+            },
+            {
+              "id": "55",
+              "label": {
+                "en": "55 - Raise Roller Shutter as long as pressed"
+              }
+            }
+          ]
         },
         {
           "id": "60",
@@ -256,6 +294,301 @@
           "hint": {
             "en": "enknapps rullegardin."
           }
+        }
+      ]
+    },
+    {
+      "id": "wde00x903",
+      "name": {
+        "en": "Push Button 2ch"
+      },
+      "class": "button",
+      "capabilities": [
+        "button"
+      ],
+      "images": {
+        "large": "/drivers/wde00x903/assets/images/large.png",
+        "small": "/drivers/wde00x903/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 1,
+        "productId": [
+          4
+        ],
+        "zwaveAllianceProductId": 326,
+        "associationGroups": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Button Top Left"
+          },
+          "children": [
+            {
+              "id": "button_mode_tl",
+              "zwave": {
+                "index": 0,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "label": {
+                "en": "Mode"
+              },
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0 - Switching/dimming/roller shutter dual-surface"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 - On/off, single-surface"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "60 - Retrieve/Save Scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "44 - Doorbell Function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "54 - Move Roller Shutter, single-surface"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "52 - Lower Roller Shutter as long as pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "55 - Raise Roller Shutter as long as pressed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button Bottom Left"
+          },
+          "children": [
+            {
+              "id": "button_mode_bl",
+              "zwave": {
+                "index": 1,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "label": {
+                "en": "Mode"
+              },
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0 - Switching/dimming/roller shutter dual-surface"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 - On/off, single-surface"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "60 - Retrieve/Save Scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "44 - Doorbell Function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "54 - Move Roller Shutter, single-surface"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "52 - Lower Roller Shutter as long as pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "55 - Raise Roller Shutter as long as pressed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button Top Right"
+          },
+          "children": [
+            {
+              "id": "button_mode_tr",
+              "zwave": {
+                "index": 2,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "label": {
+                "en": "Mode"
+              },
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0 - Switching/dimming/roller shutter dual-surface"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 - On/off, single-surface"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "60 - Retrieve/Save Scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "44 - Doorbell Function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "54 - Move Roller Shutter, single-surface"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "52 - Lower Roller Shutter as long as pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "55 - Raise Roller Shutter as long as pressed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button Bottom Right"
+          },
+          "children": [
+            {
+              "id": "button_mode_br",
+              "zwave": {
+                "index": 3,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "label": {
+                "en": "Mode"
+              },
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0 - Switching/dimming/roller shutter dual-surface"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 - On/off, single-surface"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "60 - Retrieve/Save Scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "44 - Doorbell Function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "54 - Move Roller Shutter, single-surface"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "52 - Lower Roller Shutter as long as pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "55 - Raise Roller Shutter as long as pressed"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -375,77 +708,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=mtn507900"
-          }
-        ]
-      }
-    ],
-    "triggers": [
-      {
-        "id": "mtn508244",
-        "title": {
-          "en": "Push button",
-          "nl": "Druk knop"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=mtn508244"
-          },
-          {
-            "name": "scene",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "Key Pressed 1 time",
-                "label": {
-                  "en": "Pressed 1x",
-                  "nl": "1x ingedrukt"
-                }
-              },
-              {
-                "id": "Key Pressed 2 times",
-                "label": {
-                  "en": "Pressed 2x",
-                  "nl": "2x ingedrukt"
-                }
-              },
-              {
-                "id": "Key Pressed 3 times",
-                "label": {
-                  "en": "Pressed 3x",
-                  "nl": "3x ingedrukt"
-                }
-              },
-              {
-                "id": "Key Pressed 4 times",
-                "label": {
-                  "en": "Pressed 4x",
-                  "nl": "4x ingedrukt"
-                }
-              },
-              {
-                "id": "Key Pressed 5 times",
-                "label": {
-                  "en": "Pressed 5x",
-                  "nl": "5x ingedrukt"
-                }
-              },
-              {
-                "id": "Key Held Down",
-                "label": {
-                  "en": "Long press (triggers every half second)",
-                  "nl": "Lang drukken (activeert elke halve seconde)"
-                }
-              },
-              {
-                "id": "Key Released",
-                "label": {
-                  "en": "Long press released",
-                  "nl": "Lang drukken gestopt"
-                }
-              }
-            ]
           }
         ]
       }

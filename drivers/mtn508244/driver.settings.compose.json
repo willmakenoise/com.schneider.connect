@@ -1,23 +1,60 @@
 [
   {
-    "id": "54",
+    "id": "button_mode",
     "zwave": {
       "index": 0,
       "size": 1,
       "signed": false
     },
-    "type": "number",
+    "type": "dropdown",
     "label": {
-      "en": "enknapps rullegardin"
+      "en": "Button Mode"
     },
-    "value": 4,
-    "attr": {
-      "min": 0,
-      "max": 255
-    },
-    "hint": {
-      "en": "enknapps rullegardin."
-    }
+    "value": "4",
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "0 - ??"
+        }
+      },
+      {
+        "id": "4",
+        "label": {
+          "en": "4 - Toggling/Dimming/Shutters, single-surface"
+        }
+      },
+      {
+        "id": "60",
+        "label": {
+          "en": "60 - Retrieve/Save Scene"
+        }
+      },
+      {
+        "id": "44",
+        "label": {
+          "en": "44 - Doorbell Function"
+        }
+      },
+      {
+        "id": "54",
+        "label": {
+          "en": "54 - Move Roller Shutter, single-surface"
+        }
+      },
+      {
+        "id": "52",
+        "label": {
+          "en": "52 - Lower Roller Shutter as long as pressed"
+        }
+      },
+      {
+        "id": "55",
+        "label": {
+          "en": "55 - Raise Roller Shutter as long as pressed"
+        }
+      }
+    ]
   },
   {
     "id": "60",
