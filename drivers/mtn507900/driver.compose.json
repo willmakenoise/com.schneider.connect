@@ -19,7 +19,7 @@
         "en": "Press the button on your device three times"
       }
     },
-    "associationGroups": [1]
+    "associationGroups": [1, 2]
   },
   "pair": [{
       "id": "list_devices",

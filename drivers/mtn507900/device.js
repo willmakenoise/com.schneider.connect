@@ -18,9 +18,12 @@ class Schneider507900 extends ZwaveDevice {
     // this.registerReportListener('CONFIGURATION', 'CONFIGURATION_REPORT', ( rawReport, parsedReport ) => {
 		// 	console.log('CONFIGURATION_REPORT', rawReport, parsedReport);
 		// });
-    // this.registerReportListener('SWITCH_MULTILEVEL', 'SWITCH_MULTILEVEL_REPORT', ( rawReport, parsedReport ) => {
-		// 	console.log('SWITCH_MULTILEVEL_REPORT', rawReport, parsedReport);
-		// });
+    this.registerReportListener('SWITCH_MULTILEVEL', 'SWITCH_MULTILEVEL_REPORT', ( rawReport, parsedReport ) => {
+			console.log('SWITCH_MULTILEVEL_REPORT', rawReport, parsedReport);
+		});
+    this.registerReportListener('BASIC', 'BASIC_REPORT', ( rawReport, parsedReport ) => {
+			console.log('BASIC_REPORT', rawReport, parsedReport);
+		});
     // this.registerReportListener('ASSOCIATION', 'ASSOCIATION_REPORT', ( rawReport, parsedReport ) => {
 		// 	console.log('ASSOCIATION_REPORT', rawReport, parsedReport);
 		// });
