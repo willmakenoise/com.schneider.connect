@@ -1,0 +1,28 @@
+{
+  "id": "wde00x903",
+  "name": {
+    "en": "Push Button 2ch"
+  },
+  "class": "button",
+  "capabilities": [
+    "button"
+  ],
+  "images": {
+    "large": "/drivers/wde00x903/assets/images/large.png",
+    "small": "/drivers/wde00x903/assets/images/small.png"
+  },
+  "zwave": {
+    "manufacturerId": 122,
+    "productTypeId": 1,
+    "productId": [
+      4
+    ],
+    "zwaveAllianceProductId": 326,
+    "associationGroups": [1, 2, 3, 4],
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on your device three times"
+      }
+    }
+  }
+}
