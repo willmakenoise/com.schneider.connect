@@ -1,6 +1,6 @@
 'use strict';
 
-const { ZwaveDevice } = require('homey-meshdriver');
+const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
 class Schneider507601 extends ZwaveDevice {
 

@@ -4,13 +4,15 @@
   "compatibility": ">=2.0.0",
   "sdk": 2,
   "name": {
-    "en": "Schneider Connect"
+    "en": "Schneider Connect",
+    "no": "Scheinder Connect"
   },
   "description": {
-    "en": "Add support for Schneider Connect devices."
+    "en": "Adds support for Schneider Connect (formerly Merten) Z-Wave devices.",
+    "no": "Legger til støtte for Schneider Connect (tidligere Merten) Z-Wave-enheter."
   },
   "category": [
-    "appliances"
+    "lights"
   ],
   "permissions": [],
   "images": {
@@ -111,6 +113,121 @@
         {
           "id": "add_my_devices",
           "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "mtn507801",
+      "name": {
+        "en": "Roller Shutter"
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "onoff",
+        "windowcoverings_set",
+        "windowcoverings_tilt_set"
+      ],
+      "images": {
+        "large": "/drivers/mtn507801/assets/images/large.png",
+        "small": "/drivers/mtn507801/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": [
+          32771
+        ],
+        "productId": [
+          1
+        ],
+        "learnmode": {
+          "instruction": {
+            "en": "Press the button on your device three times"
+          }
+        },
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "id": "upward_travel_time_177",
+          "zwave": {
+            "index": 177,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "Upward Travel Time 177"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 254
+          },
+          "hint": {
+            "en": "How fast the blinds will open.\nUse 3 for factory default."
+          }
+        },
+        {
+          "id": "upward_travel_time_178",
+          "zwave": {
+            "index": 178,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "Upward Travel Time 178"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 254
+          },
+          "hint": {
+            "en": "How fast the blinds will open.\nUse 3 for factory default."
+          }
+        },
+        {
+          "id": "downward_travel_time_179",
+          "zwave": {
+            "index": 179,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "Downward Travel Time 179"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 254
+          },
+          "hint": {
+            "en": "How fast the blinds will close.\nUse 3 for factory default."
+          }
+        },
+        {
+          "id": "downward_travel_time_180",
+          "zwave": {
+            "index": 180,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "Downward Travel Time 180"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 254
+          },
+          "hint": {
+            "en": "How fast the blinds will close.\nUse 3 for factory default."
+          }
         }
       ]
     },
@@ -303,9 +420,7 @@
         "en": "Push Button 2ch"
       },
       "class": "button",
-      "capabilities": [
-        "button"
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/wde00x903/assets/images/large.png",
         "small": "/drivers/wde00x903/assets/images/small.png"
@@ -318,11 +433,34 @@
         ],
         "zwaveAllianceProductId": 326,
         "associationGroups": [
-          1,
-          2,
-          3,
           4
         ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Switch 1 - control associated devices",
+              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Switch 2 - control associated devices",
+              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "Switch 3 - control associated devices",
+              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "Switch 4 - control associated devices",
+              "nl": "schakelaar 4 - schakel gekoppelde apparaten"
+            }
+          }
+        },
         "learnmode": {
           "instruction": {
             "en": "Press the button on your device three times"
@@ -595,6 +733,122 @@
   ],
   "flow": {
     "actions": [
+      {
+        "id": "schneider_dim_startLevelChange",
+        "title": {
+          "en": "Start dim level change",
+          "nl": "Start helderheid transitie"
+        },
+        "hint": {
+          "en": "This action card will start a dim level change in the set direction. \nDim duration is set in device settings.",
+          "nl": "Deze actiekaart start een dimniveauverandering in de ingestelde richting. \nDimduur is ingesteld in apparaatinstellingen."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507801"
+          },
+          {
+            "name": "direction",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Increase dim level",
+                  "nl": "Toenemende helderheid"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Decrease dim level",
+                  "nl": "Afnemende helderheid"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schneider_dim_stopLevelChange",
+        "title": {
+          "en": "Stop dim level change",
+          "nl": "Stop helderheid transitie"
+        },
+        "hint": {
+          "en": "This action card will stop a dim level change.",
+          "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507801"
+          }
+        ]
+      },
+      {
+        "id": "schneider_dim_startToggleLevelChange",
+        "title": {
+          "en": "Start dim level change (toggle direction)",
+          "nl": "Start helderheid transitie (wisselrichting)"
+        },
+        "hint": {
+          "en": "This action card will start a dim level change, and toggle dim direction (up/down) for every time it is invoked. \nDim duration is set in device settings.",
+          "nl": "Deze actiekaart activeert het begin van een dimniveauverandering en wisselt van richting (omhoog/omlaag). \nDe dimduur wordt ingesteld in apparaatinstellingen."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507801"
+          },
+          {
+            "name": "roll_over",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Stop level change at min/max brightness"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Cycle brightness between min/max"
+                }
+              }
+            ],
+            "label": {
+              "en": "Dimming behavior"
+            },
+            "hint": {
+              "en": "Enable this to toggle dim direction when min/max brightness is reached."
+            }
+          }
+        ]
+      },
+      {
+        "id": "schneider_dim_stopToggleLevelChange",
+        "title": {
+          "en": "Stop dim level change (toggle direction)",
+          "nl": "Stop helderheid transitie (wisselrichting)"
+        },
+        "hint": {
+          "en": "This action card will trigger the stop of a toggled dim level change.",
+          "nl": "Deze actiekaart activeert de stop van een omgeschakeld dimniveau wijzigen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mtn507801"
+          }
+        ]
+      },
       {
         "id": "schneider_dim_startLevelChange",
         "title": {

@@ -4,9 +4,7 @@
     "en": "Push Button 2ch"
   },
   "class": "button",
-  "capabilities": [
-    "button"
-  ],
+  "capabilities": [],
   "images": {
     "large": "/drivers/wde00x903/assets/images/large.png",
     "small": "/drivers/wde00x903/assets/images/small.png"
@@ -18,7 +16,35 @@
       4
     ],
     "zwaveAllianceProductId": 326,
-    "associationGroups": [1, 2, 3, 4],
+    "associationGroups": [
+      4
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Switch 1 - control associated devices",
+          "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+        }
+      },
+      "2": {
+        "hint": {
+          "en": "Switch 2 - control associated devices",
+          "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+        }
+      },
+      "3": {
+        "hint": {
+          "en": "Switch 3 - control associated devices",
+          "nl": "schakelaar 3 - schakel gekoppelde apparaten"
+        }
+      },
+      "4": {
+        "hint": {
+          "en": "Switch 4 - control associated devices",
+          "nl": "schakelaar 4 - schakel gekoppelde apparaten"
+        }
+      }
+    },
     "learnmode": {
       "instruction": {
         "en": "Press the button on your device three times"
