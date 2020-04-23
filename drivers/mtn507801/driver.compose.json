@@ -1,0 +1,33 @@
+{
+  "id": "mtn507801",
+  "name": {
+    "en": "Roller Shutter"
+  },
+  "class": "windowcoverings",
+  "capabilities": [
+    "onoff",
+    "windowcoverings_set",
+    "windowcoverings_tilt_set"
+  ],
+  "images": {
+    "large": "/drivers/mtn507801/assets/images/large.png",
+    "small": "/drivers/mtn507801/assets/images/small.png"
+  },
+  "zwave": {
+    "manufacturerId": 122,
+    "productTypeId": [
+      32771
+    ],
+    "productId": [
+      1
+    ],
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on your device three times"
+      }
+    },
+    "associationGroups": [
+      1
+    ]
+  }
+}
