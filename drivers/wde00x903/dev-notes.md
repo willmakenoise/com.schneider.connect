@@ -99,7 +99,7 @@ Push Btn Bottom | BASIC_SET | '1': { 'Value (Raw)': <Buffer 00>, Value: 0 },<br>
 Action | Command Sent | Value | Notes
 ------ | ------------ | ----- | -----
 Push | BASIC_GET | '1': {}, '2': null | Asks for state?
-- | BASIC_SET | '1': { 'Value (Raw)': <Buffer ff>, Value: 255 },<br>'2': null | Always sends 255. Depending on BASIC_GET?
+. | BASIC_SET | '1': { 'Value (Raw)': <Buffer ff>, Value: 255 },<br>'2': null | Always sends 255. Depending on BASIC_GET?
 
 #### 44 - Doorbell Function
 
