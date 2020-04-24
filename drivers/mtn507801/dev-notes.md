@@ -1,4 +1,6 @@
-Settings
+# Schneider Connect - Roller Shutter - MTN507801
+
+## Parameters
 
 {177: 0, 178: 0} = 5 sek
 {177: 1, 178: 0} = 25 sek
